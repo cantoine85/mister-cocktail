@@ -1,0 +1,35 @@
+
+<div class="text-center">
+  <div class="banner" style="background-image: url(<%= @cocktail.picture %>)">
+    <h1><%= @cocktail.name %></h1>
+  </div>
+
+  <!-- Show list of doses-->
+  <h2>List of ingredients</h2>
+  <br>
+  <ul class="list-unstyled">
+    <% @cocktail.doses.each do |dose|%>
+      <li><%= dose.description %> (<%= dose.ingredient.name %>)</li>
+    <% end %>
+  </ul>
+
+  <!-- Add a dose of cocktail-->
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+        <%= simple_form_for [@cocktail, @dose] do |f| %>
+          <%= f.input :description, placeholder: "6 cl, une pincée de...", as: :string %>
+          <%= f.input :ingredient_id , collection: Ingredient.all %>
+          <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Index -->
+  <%= link_to "Back", cocktails_path, class: "btn btn-primary" %>
+
+</div>
+
+
+

@@ -1,0 +1,21 @@
+<div class="card-container" style="background-image: url(<%=cocktail.picture %>)">
+  <div class="card-title">
+    <%=cocktail.name %>
+  </div>
+  <ul class="list-inline list-unstyled">
+    <li>
+      <%=link_to cocktail_path(cocktail) do %>
+        <i class="fa fa-info-circle"></i>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to cocktail_path(cocktail), method: :delete do %>
+        <i class="fa fa-trash-o"></i>
+      <% end %>
+    </li>
+  </ul>
+</div>
+
+
+
+

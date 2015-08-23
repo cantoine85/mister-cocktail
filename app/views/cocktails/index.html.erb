@@ -1,12 +1,20 @@
-<h1>My Best Cocktails</h1>
-<div class="row">
-  <% @cocktails.each do |cocktail| %>
-    <div class="col-xs-12 col-sm-4">
-      <div class='card' style="background-image: url('http://unsplash.it/400/400?')">
-        <h2><%= cocktail.name %></h2>
-      </div>
+<div class="text-center">
+  <div class="banner"  style="background-color:#2E294E">
+    <h1>My Best Cocktails</h1>
+    <%=link_to new_cocktail_path, class: "btn btn-primary" do %>
+      <i class="fa fa-glass"></i> Add a new cocktail
+    <% end %>
+  </div>
+  <div class="container">
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+        <div class="col-xs-12 col-sm-4">
+          <%= render "card", cocktail: cocktail %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
+
 
 
